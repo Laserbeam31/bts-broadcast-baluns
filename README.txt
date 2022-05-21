@@ -100,7 +100,7 @@ balun's multicast UDP output. My final program consiste of the following scripts
 				text file) to balun_trigger, and used as a necessary argument
 				in tcprepeat.
 
-5. balun_capture_2.pcap	The packet-captured keepalive packet. This is what tcprepeat
+5. balun_capture_2.pcap		The packet-captured keepalive packet. This is what tcprepeat
 				in balun_trigger.py uses to send repeatedly to the sender balun 
 				and keep it transmitting.
    
