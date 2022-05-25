@@ -1,5 +1,5 @@
-OPERATION AND SPOOFING OF THE BTS BROADCAST BALUNS - JOHN LUCAS 21/05/2022
-==========================================================================
+Operation and Spoofing of the BTS Broadcast HDMI Baluns - John Lucas 25/05/2022
+===============================================================================
 
 The BTS Broadcast baluns convert HDMI signals to multicast IP data for transmission over Ethernet
 networks. Being IP, they can go through netork switches with no problems (unlike traditional
