@@ -20,8 +20,8 @@ By manually placing a computer on the 192.168.168.xxx/24 wired network with the 
 configuration webpages may be accessed, by entering their management unicast address into a browser.
 
 
-How a sender and receiver balun communicate
--------------------------------------------
+How a sender and receiver balun communicate:
+--------------------------------------------
 
 1. When placed on the same networkas a sender, the receiver sends out an ARP "who-has" discovery
    packet. This allows it to pinpoint the unicast _management_ IP address of the sender;
@@ -43,8 +43,8 @@ How a sender and receiver balun communicate
    to transmit multicast video. This is probably for power saving reasons.
    
 
-Extracting a sender's multicast stream with a computer
-------------------------------------------------------
+Extracting a sender's multicast stream with a computer:
+-------------------------------------------------------
 
 To be able to extract video onto a computer _directly_ from the multicast data stream (i.e. with
 no intermediate receiver balun), the following steps are required. Due to the cheap nature of the
@@ -71,8 +71,8 @@ in VLC Media Player's "Network Stream Open" box:
    which VLC Media Player can understand. It then pipes this image stream into VLC.
    
 
-How my program works
---------------------
+How my program works:
+---------------------
 
 Fundamentally, the program makes a Linux computer pretend to be a receiver balun.
 
@@ -105,7 +105,7 @@ balun's multicast UDP output. My final program consists of the following scripts
 				and keep it transmitting.
    
 
-Required packages for my program to function correctly
+Required packages for my program to function correctly:
 -------------------------------------------------------
 
 - VLC Media player:	Used to display (and record/re-stream, if necessary) the output of the
@@ -116,8 +116,8 @@ Required packages for my program to function correctly
 - Python2:		Not Python3!
 
 
-Notes and quirks
-----------------
+Notes and quirks:
+-----------------
 
 - Sometimes, the first time the program is run, VLC will not display anything. If this is the
   case, [Ctrl+C] to stop the program, and re-run it. For some strange reason, second time
