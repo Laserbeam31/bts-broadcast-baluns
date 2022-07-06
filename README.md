@@ -80,28 +80,28 @@ My program, which is based on the script in the above webpage, ties together all
 processes which much be carried out in order to successfully extract video from the sender
 balun's multicast UDP output. My final program consists of the following scripts/files:
 
-1. [balun_capture_full.py]:	The _main program_ which calls upon other smaller scripts
+1. `balun_capture_full.py`:	The _main program_ which calls upon other smaller scripts
 				and mediates the various tasks (as listed above) which must be
 				carried out to extract the video feed.
 				
-2. [balun_capture.py]:		The script (called by the main program) 
+2. `balun_capture.py`:		The script (called by the main program) 
 				from the above website which does the main
 				conversion between the UDP multicast stream and a usable set
 				of JPEG images which VLC can handle.
 				
-3. [balun_trigger.py]:		A script (called by [balun_capture_full])
+3. `balun_trigger.py`:		A script (called by `balun_capture_full`)
 				which periodically uses tcprepeat to regurgitate the
 				keepalive packet to the sender's management unicast IP address.
 
-4. [ethernetAddress.txt]	A text file which serves as a means to interface between the
-				[balun_capture_full.py] and balun_trigger.py scripts. The user
+4. `ethernetAddress.txt`	A text file which serves as a means to interface between the
+				`balun_capture_full.py` and balun_trigger.py scripts. The user
 				inputs the name of their computer's Ethernet interface in
-				[balun_capture_full], and it is then passed, by means of this
-				text file, to [balun_trigger], and used as a necessary argument
+				`balun_capture_full`, and it is then passed, by means of this
+				text file, to `balun_trigger`, and used as a necessary argument
 				in tcprepeat.
 
-5. [balun_capture_2.pcap]	The packet-captured keepalive packet. This is what tcprepeat
-				in [balun_trigger.py] uses to send repeatedly to the sender balun 
+5. `balun_capture_2.pcap`	The packet-captured keepalive packet. This is what tcprepeat
+				in `balun_trigger.py` uses to send repeatedly to the sender balun 
 				and keep it transmitting.
    
 
@@ -120,13 +120,13 @@ Notes and quirks:
 -----------------
 
 - Sometimes, the first time the program is run, VLC will not display anything. If this is the
-  case, [Ctrl+C] to stop the program, and re-run it. For some strange reason, second time
+  case, `Ctrl+C` to stop the program, and re-run it. For some strange reason, second time
   always works!
   
 - The balun_capture.py script is actually designed to operate with a similar but older multicast HDMI 
   balun from a different manufacturer. This particular older model of balun had a bug whereby some UDP
   packets emanating from it were malformed. To extract data from this buggy datastream, a raw
-  socket was needed in [balun_capture.py]. The BTS baluns do not suffer from this bug, and therefore
+  socket was needed in `balun_capture.py`. The BTS baluns do not suffer from this bug, and therefore
   balun_capture.py could be probably modified to operate over a UDP, rather than a raw, socket.
 
 
