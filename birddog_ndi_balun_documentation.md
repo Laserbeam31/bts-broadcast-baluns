@@ -1,7 +1,7 @@
 Documentation for BTS BirdDog NDI HDMI IP Baluns
 ================================================
 
-The BTS BirdDog baluns can send or receive HDMI video over NDI. Unlike the broadcast baluns (see `broadcast_balun_operation+spoofing.md` file), the
+The BTS BirdDog baluns can send or receive HDMI video over NDI. Unlike the broadcast baluns (see 'broadcast_balun_operation+spoofing.md' file), the
 NDI stream handled by the birddogs is not broadcast/multicast and  can be sent nicely over an IP network without the need for a segregated VLAN for 
 each stream.
 
@@ -69,6 +69,40 @@ Select the source to be decoded from the 'Available NDI Sources' dropdown menu. 
 
 Aside from the `Decode Screensaver` option (which serves to act as a 'No NDI signal' indicator on the output display), no other options in `NDI Decode`
 need be changed for regular use.
+
+Standing config:
+----------------
+
+Network:
+- DHCP: disabled
+- IP address:   10.10.100.x (where x is the BirdDog number, as written on the front)
+- Subnet mask:  255.255.255.0
+- Gateway:      10.10.100.254
+- Hostname:     BIRDDOG-x (where x is the BirdDog number, as written on the front)
+
+System:
+- Preferred transmit method:    TCP
+- preferred receive method:     TCP
+- NDI discovery server:         Off
+
+A/V:
+- Operation mode:               [User-adjustable based on intended event-specific use]; leave as `Decode`
+- Video input format:           Auto
+- HDMI input colour space:      RGB
+- Analogue in gain:             [Disabled]
+- Analogue out gain:            [Disabled]
+- HDMI tally:                   Off
+- Headset mode:                 Decode
+- HDMI colour space:            RGB
+- Current source:               [User-adjustable based on intended event-specific use]
+- Decode stream select:         Full
+- Decode screensaver:           [User-adjustable based on intended event-specicic use]; leave as `BirdDog`
+- Bitrate management:           NDI managed
+- NDI output bandwidth:         [Disabled]
+- NDI audio:                    Active
+- Onboard tally:                Off
+- Encode Failover source name:  [User-adjustable based on intended event-specific use]
+- Encode Failover source IP:    [User-adjustable based on intended event-specific use]
 
 
 
