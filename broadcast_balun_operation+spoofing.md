@@ -2,11 +2,11 @@ Operation and Spoofing of the BTS Broadcast HDMI Baluns - John Lucas 25/05/2022
 ===============================================================================
 
 The BTS Broadcast baluns convert HDMI signals to multicast IP data for transmission over Ethernet
-networks. Being IP, they can go through netork switches with no problems (unlike traditional
+networks. Being IP, they can go through network switches with no problems (unlike traditional
 passive "HDMI over Cat5" baluns, which only change the physical transmission medium, rather
 than re-encoding the signals to follow a totally different standard).
 
-Due to being multicast with regards to their mode of operation, theses baluns MUST be used on
+Owing to being multicast with regards to their mode of operation, these baluns MUST be used on
 an isolated switch or VLAN.
 
 The broadcast baluns use the unchangeable multicast address 226.2.2.2 for transmission of video 
@@ -23,7 +23,7 @@ configuration webpages may be accessed, by entering their management unicast add
 How a sender and receiver balun communicate:
 --------------------------------------------
 
-1. When placed on the same networkas a sender, the receiver sends out an ARP "who-has" discovery
+1. When placed on the same network as a sender, the receiver sends out an ARP "who-has" discovery
    packet. This allows it to pinpoint the unicast _management_ IP address of the sender;
 
 2. The sender responds, identifying itself to the receiver. At this stage, the receiver knows the
@@ -36,10 +36,10 @@ How a sender and receiver balun communicate:
    (MJPEG, in essence) which the receiver then re-assembles and converts back to a local HDMI 
    port for a screen/projector;
    
-4. Since the sender produces multicast. This means that, on one VLAN/network, one sender can
-   distribute video to many receivers - all of which listen out to the same multicast stream;
+4. Since the sender produces multicast, this means that, on one VLAN/network, one sender can
+   distribute video to many receivers - all of which "listen out" to the same multicast stream;
    
-5. If the sender balun stops receiving the keepalive packets from he receiver balun(s), it ceases
+5. If the sender balun stops receiving the keepalive packets from the receiver balun(s), it ceases
    to transmit multicast video. This is probably for power saving reasons.
    
 
@@ -47,9 +47,9 @@ Extracting a sender's multicast stream with a computer:
 -------------------------------------------------------
 
 To be able to extract video onto a computer _directly_ from the multicast data stream (i.e. with
-no intermediate receiver balun), the following steps are required. Due to the cheap nature of the
-encoding used by these baluns, it is _not_ simply possible to enter the multicast address directly
-in VLC Media Player's "Network Stream Open" box:
+no intermediate receiver balun), the following steps are required. Owing to the basic nature of the
+encoding used by these baluns, it is _not_ simply possible to enter the baluns' multicast address 
+directly in VLC Media Player's "Open Network Stream" box:
 
 1. The computer must be connected _only_ to the network/VLAN occupied by the receiver balun. It
    must also have its IP settings manually changed so that it resides on the 192.168.168.xxx/24
@@ -58,7 +58,7 @@ in VLC Media Player's "Network Stream Open" box:
    
 2. The computer must send out "spoofed" keepalive packets to the unicast management address of   
    the sender, in order to keep the sender in a transmissive state. In the case of the attached
-   program, I achieved this by Wiresharking the output of a genuine receiver balun and extracting
+   program, I achieved this by Wireshark-ing the output of a genuine receiver balun and extracting
    the periodic keepalive packets from the flood of multicast video;
    
 3. The computer must process the UDP stream emanating from the sender and convert it into a
@@ -74,7 +74,7 @@ in VLC Media Player's "Network Stream Open" box:
 How my program works:
 ---------------------
 
-Fundamentally, the program makes a Linux computer pretend to be a receiver balun.
+Essentially, the program makes a Linux computer pretend to be a receiver balun.
 
 My program, which is based on the script in the above webpage, ties together all the various
 processes which much be carried out in order to successfully extract video from the sender
@@ -100,9 +100,9 @@ balun's multicast UDP output. My final program consists of the following scripts
 				text file, to `balun_trigger`, and used as a necessary argument
 				in tcprepeat.
 
-5. `balun_capture_2.pcap`	The packet-captured keepalive packet. This is what tcprepeat
-				in `balun_trigger.py` uses to send repeatedly to the sender balun 
-				and keep it transmitting.
+5. `balun_capture_2.pcap`	The packet-captured keepalive packet. This is what tcprepeat,
+   				in `balun_trigger.py`, sends repeatedly to the sender balun 
+				to keep it transmitting.
    
 
 Required packages for my program to function correctly:
@@ -123,7 +123,7 @@ Notes and quirks:
   case, `Ctrl+C` to stop the program, and re-run it. For some strange reason, second time
   always works!
   
-- The balun_capture.py script is actually designed to operate with a similar but older multicast HDMI 
+- The `balun_capture.py` script is actually designed to operate with a similar but older multicast HDMI 
   balun from a different manufacturer. This particular older model of balun had a bug whereby some UDP
   packets emanating from it were malformed. To extract data from this buggy datastream, a raw
   socket was needed in `balun_capture.py`. The BTS baluns do not suffer from this bug, and therefore
