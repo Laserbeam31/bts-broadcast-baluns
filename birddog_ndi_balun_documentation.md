@@ -1,12 +1,13 @@
 Documentation for BTS BirdDog NDI HDMI IP Baluns
 ================================================
 
-The BTS BirdDog baluns can send or receive HDMI video over NDI. Unlike the broadcast baluns (see [broadcast_balun_operation+spoofing](broadcast_balun_operation+spoofing.md)), the
-NDI stream handled by the BirdDogs is not broadcast/multicast and can be sent nicely over an IP network without the need for a segregated VLAN for 
-each stream.
+The BTS BirdDog baluns can send or receive HDMI video over NDI. Unlike the broadcast baluns, the
+NDI stream handled by the BirdDogs is not broadcast/multicast and can be sent nicely over an IP 
+network without the need for a segregated VLAN for each stream.
 
-A further advantage of distributing video over NDI is that a computer on the same network as the NDI baluns (e.g. the BTS Mac Pro) can ingest or send NDI
-video directly via its network card, thus reducing the need for physical video connections on the machine.
+A further advantage of distributing video over NDI is that a computer on the same network as the NDI baluns 
+(e.g. the BTS Mac Pro) can ingest or send NDI video directly via its network card, thus reducing the need for 
+physical video connections on the machine.
 
 Configuration access:
 ---------------------
@@ -22,7 +23,7 @@ interface which can lead to irritating problems, such as NDI streams not showing
 IP settings:
 ------------
 
-The BirdDogs are set to use self-assigned static IP addresses in the 10.10.100.0/24 subnet. This corresponds to the "video control" VLAN on the
+The BirdDogs are set to use self-assigned static IP addresses in the 10.10.100.0/24 subnet. This corresponds to the "Video Control" VLAN on the
 touring networks. Using self-assigned static IP addresses allows the BirdDogs to also be used on networks other than the touring racks, where there
 may be no DHCP server running.
 
@@ -42,8 +43,8 @@ Particular attention should be paid to the "colour space" used by the BirdDogs. 
 NDI "decode" (NDI-HDMI) operaions.
 
 HDMI - their output connection - supports RGB or YUV (effectively 
-compressed RGB). However, it is possible (and indeed, in the case of BTS, probable) to convert HDMI to DVI with a passive adapter. DVI does not
-support YUV; only RGB. The colour space on the BirdDogs is therefore always left set to RGB in order to maximise compatibility.
+compressed RGB). However, it is possible (and indeed, in the case of BTS, probable) to convert HDMI to DVI with a passive adapter. DVI devices do not
+tend to use YUV; only RGB. The colour space on the BirdDogs is therefore usually set to RGB in order to maximise compatibility.
 
 HDMI-NDI (encode) operation:
 ----------------------------
@@ -64,7 +65,7 @@ To use a BirdDog to decode NDI back to HDMI, log into the web interface and navi
 Scroll to the bottom section of the `A/V` page and click `Apply`.
 
 For decode use, it is necessary to tell the BirdDog which NDI stream to decode. This is done in the `NDI Decode` section of the `A/V` control page.
-Select the source to be decoded from the 'Available NDI Sources' dropdown menu. If a known-good source is not showing up on this dropdown, click the
+Select the source to be decoded from the 'Available NDI Sources' dropdown menu. If a known-good source is not showing up in this dropdown, click the
 `Refresh` button at the bottom of the `NDI Decode` settings or try using a different browser.
 
 Aside from the `Decode Screensaver` option (which serves to act as a 'No NDI signal' indicator on the output display), no other options in `NDI Decode`
