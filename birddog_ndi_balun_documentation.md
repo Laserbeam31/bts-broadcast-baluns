@@ -1,19 +1,19 @@
-Documentation for BTS BirdDog NDI HDMI IP Baluns
-================================================
+Documentation for BTS BirdDog NDI HDMI IP Senders
+=================================================
 
-The BTS BirdDog baluns can send or receive HDMI video over NDI. Unlike the broadcast baluns, the
-NDI stream handled by the BirdDogs is not broadcast/multicast and can be sent nicely over an IP 
-network without the need for a segregated VLAN for each stream.
+The BTS BirdDog senders can send or receive HDMI video over NDI. Unlike the "broadcast baluns", the
+NDI stream handled by the BirdDogs is not broadcast/multicast and can be sent nicely over a shared IP 
+network without the need for a segregated VLAN per stream.
 
-A further advantage of distributing video over NDI is that a computer on the same network as the NDI baluns 
-(e.g. the BTS Mac Pro) can ingest or send NDI video directly via its network card, thus reducing the need for 
+A further advantage of distributing video over NDI is that a computer on the same network as the NDI senders 
+(e.g. the BTS Mac Pro) can ingest or send NDI video directly via its network card, reducing the need for 
 physical video connections on the machine.
 
 Configuration access:
 ---------------------
 
 Each BirdDog has a network-accessible web interface. To access this interface, enter the unit's IP address into a web browser on the
-same network as the baluns. A password is required:
+same network as the senders. A password is required:
 
 Password: [REDACTED]
 
@@ -27,14 +27,14 @@ The BirdDogs are set to use self-assigned static IP addresses in the 10.10.100.0
 touring networks. Using self-assigned static IP addresses allows the BirdDogs to also be used on networks other than the touring racks, where there
 may be no DHCP server running.
 
-Each BirdDog has a number and the following hostname format: `BIRDDOG-X` Where `X` is the balun-specific number.
-Each BirdDog has the following self-assigned IP address: `10.10.100.X` Where `X` is the balun-specific number.
+Each BirdDog has a number and the following hostname format: `BIRDDOG-X` Where `X` is the unit-specific number.
+Each BirdDog has the following self-assigned IP address: `10.10.100.X` Where `X` is the unit-specific number.
 
-Although unimportant for typical operation, the gateway IP address setting on each balun is pointed at `10.10.100.254` - the address of the touring racks'
-EdgeRouter.
+Although unimportant for typical operation, the gateway IP address setting on each sender is pointed at `10.10.100.254` - the local address of the 
+touring racks' EdgeRouter.
 
 **These IP settings should be sufficient for correct BirdDog operation on any BTS event. Please do not change them as this makes it difficult for the
-next user to pin down their IP address**
+next user to pin down the IP address**
 
 Colour space:
 -------------
@@ -42,9 +42,9 @@ Colour space:
 Particular attention should be paid to the "colour space" used by the BirdDogs. Colour space is changed separately for NDI "encode" (HDMI-NDI) and
 NDI "decode" (NDI-HDMI) operaions.
 
-HDMI - their output connection - supports RGB or YUV (effectively 
-compressed RGB). However, it is possible (and indeed, in the case of BTS, probable) to convert HDMI to DVI with a passive adapter. DVI devices do not
-tend to use YUV; only RGB. The colour space on the BirdDogs is therefore usually set to RGB in order to maximise compatibility.
+HDMI - their output connection - supports RGB or YUV (effectively compressed RGB). However, it is possible (and indeed, in the case of BTS, probable) 
+to convert HDMI to DVI with a passive adapter. DVI devices do not tend to use YUV; only RGB. The colour space on the BirdDogs is therefore usually 
+set to RGB in order to maximise compatibility.
 
 HDMI-NDI (encode) operation:
 ----------------------------
