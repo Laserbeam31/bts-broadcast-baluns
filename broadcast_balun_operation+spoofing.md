@@ -65,7 +65,7 @@ directly in VLC Media Player's "Open Network Stream" box:
    viewable format. For this, I used the Python script from the following very useful webpage
    (which, incidentally, covers much the same process with a slightly older balun):
    
-   https://blog.danman.eu/reverse-engineering-lenkeng-hdmi-over-ip-extender/
+   <https://blog.danman.eu/reverse-engineering-lenkeng-hdmi-over-ip-extender/>
    
    This script extracts the JPEG images from the UDP stream and outputs them into a format
    which VLC Media Player can understand. It then pipes this image stream into VLC.
